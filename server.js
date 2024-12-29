@@ -1,28 +1,25 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer } = require('apollo-server');
+const mongoose = require('mongoose');
+const typeDefs = require('./src/schema/typeDefs');
+const resolvers = require('./src/resolvers');
 
-// Define your GraphQL schema
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
+// Assume you've already set up your MongoDB connection
+mongoose.connect('mongodb://localhost:27017/your_database', { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true 
+}).then(() => {
+  console.log('Connected to MongoDB');
+}).catch(err => {
+  console.error('Error connecting to MongoDB', err);
+});
 
-// Define your resolvers
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!',
-  },
-};
-
-// Create an Apollo Server instance
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: true, // Enable GraphQL Playground for automatic documentation
-  introspection: true, // Enable introspection for automatic documentation
+  playground: true,
+  introspection: true,
 });
 
-// Start the server
 server.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });

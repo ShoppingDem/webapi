@@ -64,10 +64,19 @@ The API documentation is automatically generated and can be explored using the G
 
 The documentation is always up-to-date as it's generated directly from your GraphQL schema.
 
+
+## auth
+For production, make sure to set the following environment variables:
+NODE_ENV=production
+OKTA_ISSUER=https://YOUR_OKTA_DOMAIN/oauth2/default
+OKTA_CLIENT_ID=YOUR_CLIENT_ID
+
 ## Contributing
 
-[Add contribution guidelines here]
+
 
 ## License
 
 This project is licensed under the [LICENSE](LICENSE) file in the repository.
+
+
