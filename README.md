@@ -23,19 +23,7 @@
 7. Install project dependencies:
     npm install
 
-## Project Structure
-webapi/
-├── src/
-│   ├── models/
-│   ├── resolvers/
-│   │   ├── index.js
-│   │   └── query.js
-│   ├── schema/
-│   │   └── typeDefs.js
-│   └── server.js
-├── index.js
-├── package.json
-└── README.md
+
 ## Usage
 
 To start the GraphQL server:
